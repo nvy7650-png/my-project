@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Users</title>
+</head>
+
+<body>
+
+<h1>Users List</h1>
+
+<ul id="users"></ul>
+
+<script>
+
+fetch("http://webdatlichlamtoc.id.vn/api/users")
+.then(res => res.json())
+.then(data => {
+
+const list = document.getElementById("users")
+
+data.forEach(user => {
+
+const li = document.createElement("li")
+
+li.innerText = user.id + " - " + user.name
+
+list.appendChild(li)
+
+})
+
+})
+
+</script>
+
+</body>
+</html>
